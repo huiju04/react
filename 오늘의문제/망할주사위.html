@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>망할주사위</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #wrap {
+        width: 500px;
+        height: 150px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        margin: 200px auto 0 auto;
+      }
+
+      .box_wrap {
+        width: 300px;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto 50px auto;
+      }
+
+      .box {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="box_wrap">
+        <div class="box" id="box_1"></div>
+        <div class="box" id="box_2"></div>
+        <div class="box" id="box_3"></div>
+
+        <button>버튼</button>
+      </div>
+    </div>
+
+    <script>
+      // 기본조건: 주사위 3개와 레버, 해당하는 모드
+
+      // 주사위
+      // - 주사위는 점 or 숫자 or 이미지 사용한다
+      // - 모양은 상관없음
+      // - 돌아가는 모션: 위에서 아래로 굴러가는 효과 (이건 마지막에 넣기)
+
+      // 레버
+      // - 이미지 or button 태그
+      // - 내려가는 모션 넣으면 좋음(없어도 됨)
+
+      // 모드
+      // 1. 홀수 인지 짝수인지
+      // 2. 2의 배수인 3의 배수인지
+      // 3. 1~6의 사이의 숫자 인지
+      // 7~12의 사이의 숫자 인지
+      // 13~18의 사이의 숫자인지
+
+      const box01 = document.querySelector("#box_1");
+      const box02 = document.querySelector("#box_2");
+      const box03 = document.querySelector("#box_3");
+      const btnEl = document.querySelector("button");
+
+      const btnHandler = () => {
+        const box_1 = Math.floor(Math.random() * (7 - 1) + 1);
+        const box_2 = Math.floor(Math.random() * (7 - 1) + 1);
+        const box_3 = Math.floor(Math.random() * (7 - 1) + 1);
+        const in_box = box_1 + box_2 + box_3;
+
+        for (i = 1; i < 2; i++) {
+          document.getElementById("box_1").innerText = box_1;
+          document.getElementById("box_2").innerText = box_2;
+          document.getElementById("box_3").innerText = box_3;
+
+          if (in_box % 2 === 0) {
+            console.log("현재 합은:" + in_box);
+            console.log("짝수입니다");
+          } else if (in_box % 2 === 1) {
+            console.log("현재 합은:" + in_box);
+            console.log("홀수입니다");
+          }
+          // 홀짝여부
+
+          if (in_box % 2 === 0) {
+            console.log("2의 배수입니다");
+          } else if (in_box % 3 === 0) {
+            console.log("3의 배수입니다");
+          }
+          // 배수확인
+
+          if (in_box < 7) {
+            console.log("1~6 사이의 수 입니다");
+          } else if (in_box < 13) {
+            console.log("7~12 사이의 수 입니다");
+          } else if (in_box < 19) {
+            console.log("13~18 사이의 수 입니다");
+          }
+          // 숫자확인
+
+          const num = [(box_1, box_2, box_3)];
+
+          if (box_1 == num && box_2 == num && box_3 == num) {
+            alert("당첨되었습니다");
+          }
+        }
+      };
+
+      btnEl.addEventListener("click", btnHandler);
+    </script>
+  </body>
+</html>
