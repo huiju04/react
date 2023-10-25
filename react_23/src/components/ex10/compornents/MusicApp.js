@@ -13,6 +13,7 @@ export const MuiscApp = () => {
     justify-content: center;
     background-color: #555;
     color: white;
+    position: relative;
   `;
 
   const Container = styled.div`
