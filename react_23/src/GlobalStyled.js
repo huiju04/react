@@ -21,7 +21,7 @@ export const GlobalStyled = createGlobalStyle`
         box-sizing: border-box;
     }
     body{
-        font-family: 'Noto Sans KR', sans-serif;
+        /* font-family: 'Noto Sans KR', sans-serif; */
     }
 `;
 // => 전체 영역에서 사용할 수 있는 스타일 처리법
