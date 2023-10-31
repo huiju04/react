@@ -12,7 +12,7 @@ const Section = styled.section`
 const Bg = styled.div`
   width: 48%;
   height: 600px;
-  background-image: url(${(props) => props.$url});
+  background-image: url(${(props) => props.$url}) no-repeat center / cover;
 `;
 const Title = styled.div`
   width: 48%;

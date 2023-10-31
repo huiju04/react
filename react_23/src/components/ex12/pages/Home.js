@@ -16,7 +16,7 @@ export const Home = () => {
   const Con = styled.div`
     width: 45%;
     height: 600px;
-    background: url(${(props) => props.$url});
+    background: url(${(props) => props.$url}) no-repeat center / cover;
     box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.3);
     transition: 0.3s;
     &:hover {
